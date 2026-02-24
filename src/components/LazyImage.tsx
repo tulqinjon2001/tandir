@@ -41,19 +41,17 @@ const LazyImage = ({
     return () => observer.disconnect();
   }, []);
 
-  const commonProps = {
+  const baseProps = {
     src: isInView ? src : undefined,
     alt,
     className: `${className} ${hasLoaded ? "opacity-100" : "opacity-0"} transition-opacity duration-300`,
     onLoad: () => setHasLoaded(true),
     loading: "lazy" as const,
     decoding: "async" as const,
-    ...imgProps,
   };
 
   return (
     <div ref={containerRef} className={`relative w-full h-full ${wrapperClassName}`.trim()}>
-      {/* Placeholder — rasm viewport ga kelguncha va yuklanmaguncha */}
       {!hasLoaded && (
         <div
           className="absolute inset-0 bg-tandir-dark/60 animate-pulse rounded"
@@ -61,9 +59,13 @@ const LazyImage = ({
         />
       )}
       {motionProps ? (
-        <motion.img {...commonProps} {...motionProps} />
+        <motion.img
+          {...baseProps}
+          {...motionProps}
+          style={imgProps.style}
+        />
       ) : (
-        <img {...commonProps} />
+        <img {...baseProps} {...imgProps} />
       )}
     </div>
   );
