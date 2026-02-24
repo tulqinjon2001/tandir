@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ShoppingCart, Hand } from 'lucide-react';
 import { motion } from 'framer-motion';
 import OrderModal from '../components/OrderModal';
+import LazyImage from '../components/LazyImage';
 
 interface Product {
   id: number;
@@ -94,12 +95,11 @@ const SimpleTandirs = () => {
 
                 {/* Image Container */}
                 <div className="relative h-56 sm:h-64 overflow-hidden p-6">
-                  <motion.img
+                  <LazyImage
                     src={product.image}
                     alt={`Tandir ${product.size}`}
                     className="w-full h-full object-contain"
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ duration: 0.4 }}
+                    motionProps={{ whileHover: { scale: 1.08 }, transition: { duration: 0.4 } }}
                   />
                 </div>
 

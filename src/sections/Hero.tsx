@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { Check, Phone, Flame } from 'lucide-react';
 import { motion } from 'framer-motion';
+import LazyImage from '../components/LazyImage';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -26,10 +27,11 @@ const Hero = () => {
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
+        <LazyImage
           src="/images/hero-bg.jpg"
           alt="Tandir with fire"
           className="w-full h-full object-cover"
+          wrapperClassName="absolute inset-0"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a120b]/95 via-[#1a120b]/80 to-[#1a120b]/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1a120b] via-transparent to-transparent" />
@@ -156,12 +158,11 @@ const Hero = () => {
                 />
                 
                 {/* Tandir Image */}
-                <motion.img
+                <LazyImage
                   src="/images/hero-tandir.png"
                   alt="Premium Tandir"
                   className="relative z-10 w-full max-w-md drop-shadow-2xl"
-                  whileHover={{ scale: 1.05, rotateY: 5 }}
-                  transition={{ duration: 0.4 }}
+                  motionProps={{ whileHover: { scale: 1.05, rotateY: 5 }, transition: { duration: 0.4 } }}
                 />
 
                 {/* 1000°C Badge */}

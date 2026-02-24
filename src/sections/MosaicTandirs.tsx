@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Shield, ShoppingCart, Flame } from "lucide-react";
 import { motion } from "framer-motion";
 import OrderModal from "../components/OrderModal";
+import LazyImage from "../components/LazyImage";
 
 interface Product {
   id: number;
@@ -155,12 +156,11 @@ const MosaicTandirs = () => {
 
                 {/* Image Container */}
                 <div className="relative h-64 sm:h-72 overflow-hidden p-6">
-                  <motion.img
+                  <LazyImage
                     src={product.image}
                     alt={`Tandir ${product.size}`}
                     className="w-full h-full object-contain"
-                    whileHover={{ scale: 1.1, rotateY: 5 }}
-                    transition={{ duration: 0.4 }}
+                    motionProps={{ whileHover: { scale: 1.1, rotateY: 5 }, transition: { duration: 0.4 } }}
                   />
                 </div>
 

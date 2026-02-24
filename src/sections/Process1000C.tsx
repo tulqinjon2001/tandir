@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Flame, Thermometer, Clock, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
+import LazyImage from '../components/LazyImage';
 
 const Process1000C = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -191,7 +192,7 @@ const Process1000C = () => {
                   }}
                   transition={{ duration: 3, repeat: Infinity }}
                 >
-                  <img
+                  <LazyImage
                     src="/images/hero-tandir.png"
                     alt="Tandir in furnace"
                     className="w-3/4 h-auto opacity-90"

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Package, Check } from "lucide-react";
 import { motion } from "framer-motion";
+import LazyImage from "../components/LazyImage";
 
 interface Accessory {
   id: number;
@@ -96,12 +97,11 @@ const Komplektatsiya = () => {
               />
 
               {/* Tandir Image */}
-              <motion.img
+              <LazyImage
                 src="/images/hero-tandir.png"
                 alt="Tandir with complete kit"
                 className="relative z-10 w-full max-w-sm drop-shadow-2xl"
-                whileHover={{ scale: 1.05, rotateY: 5 }}
-                transition={{ duration: 0.4 }}
+                motionProps={{ whileHover: { scale: 1.05, rotateY: 5 }, transition: { duration: 0.4 } }}
               />
             </div>
           </motion.div>
@@ -121,7 +121,7 @@ const Komplektatsiya = () => {
                   {/* Icon */}
                   <div className="relative w-16 h-16 mx-auto mb-3">
                     <div className="absolute inset-0 bg-tandir-gold/20 rounded-full blur-md group-hover:bg-tandir-gold/30 transition-colors" />
-                    <img
+                    <LazyImage
                       src={accessory.image}
                       alt={accessory.name}
                       className="relative w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { X, ImageIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import LazyImage from "../components/LazyImage";
 
 // public/images/image – rasmlar 1.jpg, 2.jpg, 3.jpg, … formatida
 const IMAGE_BASE = "/images/image";
@@ -71,11 +72,10 @@ const TandirGallery = () => {
               onClick={() => setLightboxImage(src)}
               className="w-full max-w-[160px] sm:max-w-[180px] md:max-w-[200px] aspect-square rounded-xl overflow-hidden glass-card border border-tandir-gold/20 hover:border-tandir-gold/50 transition-all focus:outline-none focus:ring-2 focus:ring-tandir-gold/50 bg-tandir-medium/30"
             >
-              <img
+              <LazyImage
                 src={src}
                 alt={`Tandir ${index + 1}`}
                 className="w-full h-full object-cover"
-                loading="lazy"
               />
             </motion.button>
           ))}

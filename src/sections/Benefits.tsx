@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Star } from 'lucide-react';
 import { motion } from 'framer-motion';
+import LazyImage from '../components/LazyImage';
 
 interface Benefit {
   id: number;
@@ -111,7 +112,7 @@ const Benefits = () => {
                 {/* Icon */}
                 <div className="relative w-20 h-20 mx-auto mb-6">
                   <div className="absolute inset-0 bg-tandir-gold/20 rounded-full blur-lg group-hover:bg-tandir-gold/30 transition-colors" />
-                  <img
+                  <LazyImage
                     src={benefit.image}
                     alt={benefit.title}
                     className="relative w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
