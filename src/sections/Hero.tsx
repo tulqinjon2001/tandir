@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Check, Phone, Award, Flame } from 'lucide-react';
+import { Check, Phone, Flame } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Hero = () => {

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Phone, MapPin, Mail, MessageCircle, Instagram, Send } from 'lucide-react';
+import { MessageCircle, Instagram, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
@@ -22,33 +22,6 @@ const Footer = () => {
 
     return () => observer.disconnect();
   }, []);
-
-  const contactInfo = [
-    {
-      icon: Phone,
-      label: 'Telefon',
-      value: '+998 99 503 93 52, +998 94 503 93 52',
-      href: 'tel:+998995039352',
-    },
-    {
-      icon: MessageCircle,
-      label: 'Telegram',
-      value: '@tandir_uz',
-      href: 'https://t.me/tandir_uz',
-    },
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'info@tandir.uz',
-      href: 'mailto:info@tandir.uz',
-    },
-    {
-      icon: MapPin,
-      label: 'Manzil',
-      value: 'Xorazm, Yangiariq tumani, Kattabog\' qishlog\'i',
-      href: '#',
-    },
-  ];
 
   const socialLinks = [
     { icon: MessageCircle, label: 'Telegram', href: 'https://t.me/tandir_uz', color: 'hover:bg-blue-500' },
