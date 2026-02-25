@@ -52,11 +52,13 @@ const Header = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-tandir-gold to-tandir-orange rounded-lg flex items-center justify-center transition-shadow group-hover:shadow-gold">
-                <span className="font-display text-tandir-dark text-xl">T</span>
-              </div>
-              <span className="font-display text-xl text-tandir-text">
-                Tandir.uz
+              <img
+                src="/images/logo.png"
+                alt="Zamonaviy Tandirlar"
+                className="h-10 w-10 rounded-full object-cover"
+              />
+              <span className="font-display text-xl text-tandir-text hidden sm:inline">
+                ZAMONAVIY TANDIRLAR
               </span>
             </motion.a>
 

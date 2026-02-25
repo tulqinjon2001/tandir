@@ -59,10 +59,12 @@ const Footer = () => {
               className="space-y-4"
             >
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-gradient-to-br from-tandir-gold to-tandir-orange rounded-lg flex items-center justify-center">
-                  <span className="font-display text-tandir-dark text-xl">T</span>
-                </div>
-                <span className="font-display text-2xl text-tandir-text">Tandir.uz</span>
+                <img
+                  src="/images/logo.png"
+                  alt="Zamonaviy Tandirlar"
+                  className="h-10 w-10 rounded-full object-cover"
+                />
+                <span className="font-display text-2xl text-tandir-text">ZAMONAVIY TANDIRLAR</span>
               </div>
               <p className="text-tandir-text-secondary text-sm leading-relaxed">
                 Sifatli ko'chma tandirlar ishlab chiqaruvchi. 1000°C da pishirilgan, 100% kafolatlangan.
@@ -122,19 +124,22 @@ const Footer = () => {
             initial={{ opacity: 0 }}
             animate={isVisible ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-12 pt-8 border-t border-tandir-gold/10 flex flex-col sm:flex-row justify-between items-center gap-4"
+            className="mt-12 pt-8 border-t border-tandir-gold/10 flex flex-col items-center gap-3 text-center"
           >
-            <p className="text-tandir-text-muted text-sm text-center sm:text-left">
-              © 2024 Tandir.uz. Barcha huquqlar himoyalangan.
+            <p className="text-tandir-text-muted text-sm">
+              © 2025 Zamonaviy Tandirlar. Barcha huquqlar himoyalangan.
             </p>
-            <div className="flex gap-6">
-              <a href="#" className="text-tandir-text-muted text-sm hover:text-tandir-gold transition-colors">
-                Maxfiylik siyosati
+            <p className="text-tandir-text-muted text-sm">
+              <a
+                href="https://pinmap.uz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-tandir-gold hover:text-tandir-orange transition-colors font-medium"
+              >
+                PinMap.uz
               </a>
-              <a href="#" className="text-tandir-text-muted text-sm hover:text-tandir-gold transition-colors">
-                Foydalanish shartlari
-              </a>
-            </div>
+              {' '}tomonidan yaratildi
+            </p>
           </motion.div>
         </div>
       </div>
