@@ -86,7 +86,7 @@ const Tandirs = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0.05, rootMargin: "60px" },
     );
 
     if (sectionRef.current) {
@@ -105,7 +105,7 @@ const Tandirs = () => {
     <section
       ref={sectionRef}
       id="tandirs"
-      className="relative py-24 w-full overflow-hidden"
+      className="relative py-12 md:py-16 w-full overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1a120b] via-tandir-medium/20 to-[#1a120b]" />
@@ -115,8 +115,8 @@ const Tandirs = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-10 sm:mb-12"
+          transition={{ duration: 0.35 }}
+          className="text-center mb-8 sm:mb-10"
         >
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-tandir-text mb-4">
             Tandirlar
@@ -134,7 +134,7 @@ const Tandirs = () => {
               key={product.id}
               initial={{ opacity: 0, y: 50 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.2 + index * 0.15 }}
+              transition={{ duration: 0.35, delay: 0.05 + index * 0.05 }}
               className={`relative group ${product.featured ? "md:-mt-4 md:mb-4" : ""}`}
             >
               {product.featured && (
@@ -210,8 +210,8 @@ const Tandirs = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : {}}
-          transition={{ duration: 0.7, delay: 0.8 }}
-          className="mt-12 text-center"
+          transition={{ duration: 0.35, delay: 0.2 }}
+          className="mt-8 text-center"
         >
           <p className="text-tandir-text-muted text-sm">
             * Barcha tandirlar 1000°C da pishirilgan va 100% kafolatlangan

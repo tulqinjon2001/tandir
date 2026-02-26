@@ -32,7 +32,7 @@ const Komplektatsiya = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0.05, rootMargin: "60px" },
     );
 
     if (sectionRef.current) {
@@ -46,7 +46,7 @@ const Komplektatsiya = () => {
     <section
       ref={sectionRef}
       id="komplektatsiya"
-      className="relative py-24 w-full overflow-hidden"
+      className="relative py-12 md:py-16 w-full overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1a120b] via-tandir-medium/20 to-[#1a120b]" />
@@ -56,8 +56,8 @@ const Komplektatsiya = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.35 }}
+          className="text-center mb-10"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-tandir-gold/20 rounded-full mb-6">
             <Package className="w-4 h-4 text-tandir-gold" />
@@ -76,12 +76,12 @@ const Komplektatsiya = () => {
         </motion.div>
 
         {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
           {/* Left - Center Tandir Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 1, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.08 }}
             className="relative flex justify-center items-center"
           >
             <div className="relative">
@@ -116,7 +116,7 @@ const Komplektatsiya = () => {
                 key={accessory.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                transition={{ duration: 0.3, delay: 0.05 + index * 0.04 }}
                 whileHover={{ y: -5, scale: 1.02 }}
                 className="h-full"
               >

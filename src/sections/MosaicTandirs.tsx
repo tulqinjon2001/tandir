@@ -74,7 +74,7 @@ const MosaicTandirs = () => {
           });
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0.05, rootMargin: "60px" },
     );
 
     if (sectionRef.current) {
@@ -88,7 +88,7 @@ const MosaicTandirs = () => {
     <section
       ref={sectionRef}
       id="mosaic-tandirs"
-      className="relative py-24 w-full overflow-hidden"
+      className="relative py-12 md:py-16 w-full overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -106,8 +106,8 @@ const MosaicTandirs = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.35 }}
+          className="text-center mb-10"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-tandir-gold/20 rounded-full mb-6">
             <Shield className="w-4 h-4 text-tandir-gold" />
@@ -126,13 +126,13 @@ const MosaicTandirs = () => {
         </motion.div>
 
         {/* Products Grid */}
-        <div className="grid md:grid-cols-3 gap-8 perspective-1200">
+        <div className="grid md:grid-cols-3 gap-6 perspective-1200">
           {products.map((product, index) => (
             <motion.div
               key={product.id}
               initial={{ opacity: 0, y: 50 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.2 + index * 0.15 }}
+              transition={{ duration: 0.35, delay: 0.05 + index * 0.05 }}
               className={`relative group ${product.popular ? "md:-mt-4 md:mb-4" : ""}`}
             >
               {/* Popular Badge */}
@@ -230,8 +230,8 @@ const MosaicTandirs = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.8 }}
-          className="mt-12 text-center"
+          transition={{ duration: 0.35, delay: 0.2 }}
+          className="mt-8 text-center"
         >
           <div className="inline-flex items-center gap-2 px-6 py-3 glass rounded-full">
             <div className="w-2 h-2 bg-tandir-red rounded-full animate-pulse" />

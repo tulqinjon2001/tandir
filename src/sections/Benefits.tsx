@@ -50,7 +50,7 @@ const Benefits = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0.05, rootMargin: "60px" },
     );
 
     if (sectionRef.current) {
@@ -64,7 +64,7 @@ const Benefits = () => {
     <section
       ref={sectionRef}
       id="benefits"
-      className="relative py-24 w-full overflow-hidden"
+      className="relative py-12 md:py-16 w-full overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0">
@@ -83,8 +83,8 @@ const Benefits = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.35 }}
+          className="text-center mb-10"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-tandir-gold/20 rounded-full mb-6">
             <Star className="w-4 h-4 text-tandir-gold" />
@@ -108,7 +108,7 @@ const Benefits = () => {
               key={benefit.id}
               initial={{ opacity: 0, y: 40 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.15 + index * 0.1 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
               whileHover={{ y: -10, rotateX: 5 }}
               className="group"
               style={{
@@ -149,8 +149,8 @@ const Benefits = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.6 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
+          transition={{ duration: 0.35, delay: 0.2 }}
+          className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4"
         >
           {[
             { value: "5000+", label: "Mamnun mijozlar" },

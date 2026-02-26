@@ -13,7 +13,7 @@ const Footer = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 },
+      { threshold: 0.05, rootMargin: "60px" },
     );
 
     if (footerRef.current) {
@@ -64,9 +64,9 @@ const Footer = () => {
       <div className="absolute inset-0 opacity-20 pointer-events-none texture-clay" />
 
       {/* Main Footer Content */}
-      <div className="relative bg-gradient-to-b from-[#1a120b] to-[#0f0a06] py-16">
+      <div className="relative bg-gradient-to-b from-[#1a120b] to-[#0f0a06] py-12">
         <div className="container-custom mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {/* Brand Column */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -144,7 +144,7 @@ const Footer = () => {
             initial={{ opacity: 0 }}
             animate={isVisible ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-12 pt-8 border-t border-tandir-gold/10 flex flex-col items-center gap-3 text-center"
+            className="mt-8 pt-6 border-t border-tandir-gold/10 flex flex-col items-center gap-3 text-center"
           >
             <p className="text-tandir-text-muted text-sm">
               © 2025 Zamonaviy Tandirlar. Barcha huquqlar himoyalangan.

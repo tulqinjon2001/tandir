@@ -20,7 +20,7 @@ const TandirGallery = () => {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 },
+      { threshold: 0.05, rootMargin: "60px" }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -30,7 +30,7 @@ const TandirGallery = () => {
     <section
       ref={sectionRef}
       id="gallery"
-      className="relative py-24 w-full overflow-hidden"
+      className="relative py-12 md:py-16 w-full overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-[#1a120b] via-tandir-medium/20 to-[#1a120b]" />
 
@@ -38,8 +38,8 @@ const TandirGallery = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.35 }}
+          className="text-center mb-8"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-tandir-gold/20 rounded-full mb-6">
             <ImageIcon className="w-4 h-4 text-tandir-gold" />
@@ -59,7 +59,7 @@ const TandirGallery = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.25, delay: 0.05 }}
           className="flex flex-wrap justify-center gap-3"
         >
           {GALLERY_IMAGES.map((src, index) => (
@@ -68,7 +68,7 @@ const TandirGallery = () => {
               type="button"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.4, delay: 0.05 * index }}
+              transition={{ duration: 0.25, delay: 0.02 * index }}
               onClick={() => setLightboxImage(src)}
               className="w-full max-w-[160px] sm:max-w-[180px] md:max-w-[200px] aspect-square rounded-xl overflow-hidden glass-card border border-tandir-gold/20 hover:border-tandir-gold/50 transition-all focus:outline-none focus:ring-2 focus:ring-tandir-gold/50 bg-tandir-medium/30"
             >

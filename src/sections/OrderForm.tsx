@@ -13,7 +13,7 @@ const OrderForm = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05, rootMargin: "60px" }
     );
 
     if (sectionRef.current) {
@@ -27,7 +27,7 @@ const OrderForm = () => {
     <section
       ref={sectionRef}
       id="order"
-      className="relative py-24 w-full overflow-hidden"
+      className="relative py-12 md:py-16 w-full overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1a120b] via-tandir-medium/40 to-[#1a120b]" />
@@ -46,8 +46,8 @@ const OrderForm = () => {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.35 }}
+          className="text-center mb-8"
         >
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-tandir-text mb-4">
             Buyurtma <span className="text-tandir-gold">uchun manzil</span>
@@ -57,12 +57,12 @@ const OrderForm = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 items-start max-w-6xl mx-auto">
           {/* Left - Contact Info */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.08 }}
             className="w-full"
           >
             <div className="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
@@ -133,7 +133,7 @@ const OrderForm = () => {
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.4, delay: 0.12 }}
           >
             <div className="glass-card rounded-2xl p-3 sm:p-4">
               <div className="relative w-full overflow-hidden rounded-xl shadow-lg aspect-[4/3]">
