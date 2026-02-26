@@ -54,11 +54,17 @@ const Header = () => {
               whileTap={{ scale: 0.95 }}
             >
               <img
-                src="/images/logo.png"
+                src="/images/logo-small.png"
                 alt="Zamonaviy Tandirlar"
                 className="h-10 w-10 rounded-full object-cover"
+                width={50}
+                height={50}
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "/images/logo.png";
+                }}
               />
-              <span className="font-display text-xl text-tandir-text hidden sm:inline">
+              <span className="font-display text-xl text-tandir-text">
                 ZAMONAVIY TANDIRLAR
               </span>
             </motion.a>

@@ -80,7 +80,7 @@ const Footer = () => {
                   alt="Zamonaviy Tandirlar"
                   className="h-10 w-10 rounded-full object-cover"
                 />
-                <span className="font-display text-2xl text-tandir-text">
+                <span className="font-display text-xl text-tandir-text">
                   ZAMONAVIY TANDIRLAR
                 </span>
               </div>
