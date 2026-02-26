@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-interface LazyImageProps
-  extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src"> {
+interface LazyImageProps extends Omit<
+  React.ImgHTMLAttributes<HTMLImageElement>,
+  "src"
+> {
   src: string;
   alt: string;
-  /** Framer-motion props (whileHover, transition, etc.) — agar berilsa motion.img ishlatiladi */
+  sizes?: string;
+  srcSet?: string;
   motionProps?: Record<string, unknown>;
-  /** Tashqi wrapper div uchun class (masalan absolute inset-0) */
   wrapperClassName?: string;
 }
 
@@ -20,6 +22,8 @@ const LazyImage = ({
   alt,
   className = "",
   wrapperClassName = "",
+  sizes,
+  srcSet,
   motionProps,
   ...imgProps
 }: LazyImageProps) => {
@@ -35,7 +39,7 @@ const LazyImage = ({
       ([entry]) => {
         if (entry.isIntersecting) setIsInView(true);
       },
-      { rootMargin: "80px", threshold: 0.01 }
+      { rootMargin: "80px", threshold: 0.01 },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -48,10 +52,17 @@ const LazyImage = ({
     onLoad: () => setHasLoaded(true),
     loading: "lazy" as const,
     decoding: "async" as const,
+    ...(sizes != null && { sizes }),
+    ...(srcSet != null && isInView && { srcSet }),
+    ...(imgProps.width != null && { width: imgProps.width }),
+    ...(imgProps.height != null && { height: imgProps.height }),
   };
 
   return (
-    <div ref={containerRef} className={`relative w-full h-full ${wrapperClassName}`.trim()}>
+    <div
+      ref={containerRef}
+      className={`relative w-full h-full ${wrapperClassName}`.trim()}
+    >
       {!hasLoaded && (
         <div
           className="absolute inset-0 bg-tandir-dark/60 animate-pulse rounded"
@@ -59,11 +70,7 @@ const LazyImage = ({
         />
       )}
       {motionProps ? (
-        <motion.img
-          {...baseProps}
-          {...motionProps}
-          style={imgProps.style}
-        />
+        <motion.img {...baseProps} {...motionProps} style={imgProps.style} />
       ) : (
         <img {...baseProps} {...imgProps} />
       )}

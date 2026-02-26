@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
-import { ShoppingCart, Hand } from 'lucide-react';
-import { motion } from 'framer-motion';
-import OrderModal from '../components/OrderModal';
-import LazyImage from '../components/LazyImage';
+import { useEffect, useRef, useState } from "react";
+import { ShoppingCart, Hand } from "lucide-react";
+import { motion } from "framer-motion";
+import OrderModal from "../components/OrderModal";
+import LazyImage from "../components/LazyImage";
 
 interface Product {
   id: number;
@@ -12,12 +12,42 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 1, size: '60 sm', price: '500 000', image: '/images/tandir-simple-60.png' },
-  { id: 2, size: '70 sm', price: '800 000', image: '/images/tandir-simple-70.png' },
-  { id: 3, size: '80 sm', price: '1 000 000', image: '/images/tandir-simple-80.png' },
-  { id: 4, size: '90 sm', price: '1 300 000', image: '/images/tandir-simple-90.png' },
-  { id: 5, size: '110 sm', price: '2 000 000', image: '/images/tandir-simple-110.png' },
+  {
+    id: 1,
+    size: "60 sm",
+    price: "500 000",
+    image: "/images/tandir-simple-60.png",
+  },
+  {
+    id: 2,
+    size: "70 sm",
+    price: "800 000",
+    image: "/images/tandir-simple-70.png",
+  },
+  {
+    id: 3,
+    size: "80 sm",
+    price: "1 000 000",
+    image: "/images/tandir-simple-80.png",
+  },
+  {
+    id: 4,
+    size: "90 sm",
+    price: "1 300 000",
+    image: "/images/tandir-simple-90.png",
+  },
+  {
+    id: 5,
+    size: "110 sm",
+    price: "2 000 000",
+    image: "/images/tandir-simple-110.png",
+  },
 ];
+
+const getImageSrcSet = (img: string) => {
+  const base = img.replace(/\.(png|jpg|jpeg)$/i, "");
+  return `${base}-320.webp 320w, ${base}.webp 640w`;
+};
 
 const SimpleTandirs = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,7 +62,7 @@ const SimpleTandirs = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) {
@@ -53,7 +83,7 @@ const SimpleTandirs = () => {
 
       <div className="container-custom mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
@@ -61,7 +91,9 @@ const SimpleTandirs = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-tandir-gold/20 rounded-full mb-6">
             <Hand className="w-4 h-4 text-tandir-gold" />
-            <span className="text-tandir-text-secondary text-sm">Qo'l ishlangan</span>
+            <span className="text-tandir-text-secondary text-sm">
+              Qo'l ishlangan
+            </span>
           </div>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-tandir-text mb-4">
             Oddiy <span className="text-tandir-gold">tandirlar</span>
@@ -80,16 +112,21 @@ const SimpleTandirs = () => {
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
               className="group"
-              style={{ transform: isVisible ? `translateY(${index % 2 === 0 ? '0' : '15px'})` : undefined }}
+              style={{
+                transform: isVisible
+                  ? `translateY(${index % 2 === 0 ? "0" : "15px"})`
+                  : undefined,
+              }}
             >
               {/* Glassmorphism Card */}
               <div className="relative h-full glass-card rounded-2xl overflow-hidden transition-all duration-500 group-hover:border-tandir-gold/50 group-hover:shadow-gold group-hover:-translate-y-2">
                 {/* Heat Glow */}
-                <div 
+                <div
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 opacity-40 group-hover:opacity-70 transition-opacity"
                   style={{
-                    background: 'radial-gradient(circle, rgba(212, 140, 41, 0.4) 0%, transparent 70%)',
-                    filter: 'blur(25px)',
+                    background:
+                      "radial-gradient(circle, rgba(212, 140, 41, 0.4) 0%, transparent 70%)",
+                    filter: "blur(25px)",
                   }}
                 />
 
@@ -99,7 +136,14 @@ const SimpleTandirs = () => {
                     src={product.image}
                     alt={`Tandir ${product.size}`}
                     className="w-full h-full object-contain"
-                    motionProps={{ whileHover: { scale: 1.08 }, transition: { duration: 0.4 } }}
+                    sizes="(max-width: 640px) 50vw, 280px"
+                    srcSet={getImageSrcSet(product.image)}
+                    width={280}
+                    height={256}
+                    motionProps={{
+                      whileHover: { scale: 1.08 },
+                      transition: { duration: 0.4 },
+                    }}
                   />
                 </div>
 
@@ -114,7 +158,9 @@ const SimpleTandirs = () => {
                       <span className="font-display text-2xl price-gradient">
                         {product.price}
                       </span>
-                      <span className="text-tandir-text-muted text-sm ml-1">so'm</span>
+                      <span className="text-tandir-text-muted text-sm ml-1">
+                        so'm
+                      </span>
                     </div>
                   </div>
 
@@ -136,7 +182,7 @@ const SimpleTandirs = () => {
         </div>
 
         {/* Note */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : {}}
           transition={{ duration: 0.7, delay: 0.8 }}

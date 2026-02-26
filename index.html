@@ -1,13 +1,36 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/images/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tandir.uz - Sifatli Ko'chma Tandirlar</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Zamonaviy tandirlar — sifatli ko'chma tandirlar. 1000°C da pishirilgan, 100% kafolat. Xorazm, O'zbekiston. Buyurtma: +998 99 503 93 52." />
+  <title>Zamonaviy Tandirlar - Sifatli Ko'chma Tandirlar</title>
+  <!-- Fonts: preconnect tez ulanish uchun -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Shriftlarni bloklamasdan yuklash -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+    media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" />
+  </noscript>
+  <!-- LCP: hero fon rasmini tezroq yuklash -->
+  <link rel="preload" as="image" href="/images/hero-bg.jpg" />
+</head>
+
+<body>
+  <!-- Tezkor FCP: JS yuklanmaguncha ko'rinadi, keyin React o'chiradi -->
+  <div id="app-shell" style="position:fixed;inset:0;background:#1a120b;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;">
+    <div style="width:48px;height:48px;border:3px solid rgba(212,140,41,0.3);border-top-color:#d48c29;border-radius:50%;animation:app-shell-spin .8s linear infinite;"></div>
+    <p style="margin-top:16px;color:#c9b8a8;font-family:system-ui,sans-serif;font-size:0.875rem;">Yuklanmoqda...</p>
+  </div>
+  <style>@keyframes app-shell-spin{to{transform:rotate(360deg);}}</style>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

@@ -101,7 +101,10 @@ const Komplektatsiya = () => {
                 src="/images/hero-tandir.png"
                 alt="Tandir with complete kit"
                 className="relative z-10 w-full max-w-sm drop-shadow-2xl"
-                motionProps={{ whileHover: { scale: 1.05, rotateY: 5 }, transition: { duration: 0.4 } }}
+                motionProps={{
+                  whileHover: { scale: 1.05, rotateY: 5 },
+                  transition: { duration: 0.4 },
+                }}
               />
             </div>
           </motion.div>

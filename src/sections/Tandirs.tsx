@@ -68,6 +68,11 @@ const products: Product[] = [
   },
 ];
 
+const getImageSrcSet = (img: string) => {
+  const base = img.replace(/\.(png|jpg|jpeg)$/i, "");
+  return `${base}-320.webp 320w, ${base}.webp 640w`;
+};
+
 const Tandirs = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
@@ -158,7 +163,14 @@ const Tandirs = () => {
                     src={product.image}
                     alt={`Tandir ${product.size}`}
                     className="w-full h-full object-contain"
-                    motionProps={{ whileHover: { scale: 1.08 }, transition: { duration: 0.4 } }}
+                    sizes="(max-width: 640px) 50vw, 280px"
+                    srcSet={getImageSrcSet(product.image)}
+                    width={280}
+                    height={336}
+                    motionProps={{
+                      whileHover: { scale: 1.08 },
+                      transition: { duration: 0.4 },
+                    }}
                   />
                 </div>
 

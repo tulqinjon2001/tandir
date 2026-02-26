@@ -34,6 +34,11 @@ const products: Product[] = [
   },
 ];
 
+const getImageSrcSet = (img: string) => {
+  const base = img.replace(/\.(png|jpg|jpeg)$/i, "");
+  return `${base}-320.webp 320w, ${base}.webp 640w`;
+};
+
 const MosaicTandirs = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [animatedPrices, setAnimatedPrices] = useState<string[]>(
@@ -160,7 +165,14 @@ const MosaicTandirs = () => {
                     src={product.image}
                     alt={`Tandir ${product.size}`}
                     className="w-full h-full object-contain"
-                    motionProps={{ whileHover: { scale: 1.1, rotateY: 5 }, transition: { duration: 0.4 } }}
+                    sizes="(max-width: 640px) 50vw, 280px"
+                    srcSet={getImageSrcSet(product.image)}
+                    width={280}
+                    height={336}
+                    motionProps={{
+                      whileHover: { scale: 1.1, rotateY: 5 },
+                      transition: { duration: 0.4 },
+                    }}
                   />
                 </div>
 

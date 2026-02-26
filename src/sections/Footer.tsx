@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import { MessageCircle, Instagram, Send, Phone } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from "react";
+import { MessageCircle, Instagram, Send, Phone } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,7 +13,7 @@ const Footer = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (footerRef.current) {
@@ -24,9 +24,24 @@ const Footer = () => {
   }, []);
 
   const socialLinks = [
-    { icon: MessageCircle, label: 'Telegram', href: 'https://t.me/tandir_uz', color: 'hover:bg-blue-500' },
-    { icon: Instagram, label: 'Instagram', href: 'https://instagram.com/tandir.uz', color: 'hover:bg-pink-500' },
-    { icon: Send, label: 'Facebook', href: 'https://facebook.com/tandir.uz', color: 'hover:bg-blue-600' },
+    {
+      icon: MessageCircle,
+      label: "Telegram",
+      href: "https://t.me/tandir_uz",
+      color: "hover:bg-blue-500",
+    },
+    {
+      icon: Instagram,
+      label: "Instagram",
+      href: "https://instagram.com/tandir.uz",
+      color: "hover:bg-pink-500",
+    },
+    {
+      icon: Send,
+      label: "Facebook",
+      href: "https://facebook.com/tandir.uz",
+      color: "hover:bg-blue-600",
+    },
   ];
 
   return (
@@ -36,11 +51,12 @@ const Footer = () => {
       className="relative w-full overflow-hidden"
     >
       {/* Fire Divider */}
-      <div 
+      <div
         className="h-1 w-full"
         style={{
-          background: 'linear-gradient(90deg, transparent, #d48c29, #e67e22, #d48c29, transparent)',
-          animation: 'fireFlicker 2s ease-in-out infinite',
+          background:
+            "linear-gradient(90deg, transparent, #d48c29, #e67e22, #d48c29, transparent)",
+          animation: "fireFlicker 2s ease-in-out infinite",
         }}
       />
 
@@ -52,7 +68,7 @@ const Footer = () => {
         <div className="container-custom mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
             {/* Brand Column */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
@@ -64,12 +80,15 @@ const Footer = () => {
                   alt="Zamonaviy Tandirlar"
                   className="h-10 w-10 rounded-full object-cover"
                 />
-                <span className="font-display text-2xl text-tandir-text">ZAMONAVIY TANDIRLAR</span>
+                <span className="font-display text-2xl text-tandir-text">
+                  ZAMONAVIY TANDIRLAR
+                </span>
               </div>
               <p className="text-tandir-text-secondary text-sm leading-relaxed">
-                Sifatli ko'chma tandirlar ishlab chiqaruvchi. 1000°C da pishirilgan, 100% kafolatlangan.
+                Sifatli ko'chma tandirlar ishlab chiqaruvchi. 1000°C da
+                pishirilgan, 100% kafolatlangan.
               </p>
-              
+
               {/* Social Links */}
               <div className="flex gap-3 pt-2">
                 {socialLinks.map((social, index) => (
@@ -90,19 +109,21 @@ const Footer = () => {
             </motion.div>
 
             {/* Quick Links */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-4"
             >
-              <h3 className="font-display text-xl text-tandir-text">Tezkor havolalar</h3>
+              <h3 className="font-display text-xl text-tandir-text">
+                Tezkor havolalar
+              </h3>
               <ul className="space-y-2">
                 {[
-                  { label: 'Bosh sahifa', href: '#hero' },
-                  { label: 'Tandirlar', href: '#tandirs' },
-                  { label: 'Komplektatsiya', href: '#komplektatsiya' },
-                  { label: 'Buyurtma berish', href: '#order' },
+                  { label: "Bosh sahifa", href: "#hero" },
+                  { label: "Tandirlar", href: "#tandirs" },
+                  { label: "Komplektatsiya", href: "#komplektatsiya" },
+                  { label: "Buyurtma berish", href: "#order" },
                 ].map((link, index) => (
                   <li key={index}>
                     <a
@@ -116,11 +137,10 @@ const Footer = () => {
                 ))}
               </ul>
             </motion.div>
-
           </div>
 
           {/* Copyright */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={isVisible ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -137,8 +157,8 @@ const Footer = () => {
                 className="text-tandir-gold hover:text-tandir-orange transition-colors font-medium"
               >
                 PinMap.uz
-              </a>
-              {' '}tomonidan yaratildi
+              </a>{" "}
+              tomonidan yaratildi
             </p>
           </motion.div>
         </div>

@@ -1,14 +1,16 @@
 import './App.css';
+import { lazy, Suspense } from 'react';
 import Header from './sections/Header';
 import Hero from './sections/Hero';
-import Tandirs from './sections/Tandirs';
-import Process1000C from './sections/Process1000C';
-import Komplektatsiya from './sections/Komplektatsiya';
-import Benefits from './sections/Benefits';
-import TandirGallery from './sections/TandirGallery';
-import Testimonials from './sections/Testimonials';
-import OrderForm from './sections/OrderForm';
-import Footer from './sections/Footer';
+
+const Tandirs = lazy(() => import('./sections/Tandirs'));
+const Process1000C = lazy(() => import('./sections/Process1000C'));
+const Komplektatsiya = lazy(() => import('./sections/Komplektatsiya'));
+const Benefits = lazy(() => import('./sections/Benefits'));
+const TandirGallery = lazy(() => import('./sections/TandirGallery'));
+const Testimonials = lazy(() => import('./sections/Testimonials'));
+const OrderForm = lazy(() => import('./sections/OrderForm'));
+const Footer = lazy(() => import('./sections/Footer'));
 
 function App() {
   return (
@@ -16,15 +18,19 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <Tandirs />
-        <Process1000C />
-        <Komplektatsiya />
-        <Benefits />
-        <TandirGallery />
-        <Testimonials />
-        <OrderForm />
+        <Suspense fallback={null}>
+          <Tandirs />
+          <Process1000C />
+          <Komplektatsiya />
+          <Benefits />
+          <TandirGallery />
+          <Testimonials />
+          <OrderForm />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

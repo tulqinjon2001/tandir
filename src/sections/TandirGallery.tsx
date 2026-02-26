@@ -7,7 +7,7 @@ import LazyImage from "../components/LazyImage";
 const IMAGE_BASE = "/images/image";
 const GALLERY_IMAGES = Array.from(
   { length: 20 },
-  (_, i) => `${IMAGE_BASE}/${i + 1}.jpg`
+  (_, i) => `${IMAGE_BASE}/${i + 1}.jpg`,
 );
 
 const TandirGallery = () => {
