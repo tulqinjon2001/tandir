@@ -17,27 +17,22 @@ const products: Product[] = [
     id: 1,
     size: "60 sm",
     price: "2 000 000",
-    image: "/images/tandir-mosaic-60.jpg",
+    image: "/images/tandir-mosaic-d1.png",
   },
   {
     id: 2,
     size: "70 sm",
     price: "2 500 000",
-    image: "/images/tandir-mosaic-70.png",
+    image: "/images/tandir-mosaic-d2.png",
     popular: true,
   },
   {
     id: 3,
     size: "80 sm",
     price: "3 000 000",
-    image: "/images/tandir-mosaic-80.png",
+    image: "/images/tandir-mosaic-d3.png",
   },
 ];
-
-const getImageSrcSet = (img: string) => {
-  const base = img.replace(/\.(png|jpg|jpeg)$/i, "");
-  return `${base}-320.webp 320w, ${base}.webp 640w`;
-};
 
 const MosaicTandirs = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -165,8 +160,6 @@ const MosaicTandirs = () => {
                     src={product.image}
                     alt={`Tandir ${product.size}`}
                     className="w-full h-full object-contain"
-                    sizes="(max-width: 640px) 50vw, 280px"
-                    srcSet={getImageSrcSet(product.image)}
                     width={280}
                     height={336}
                     motionProps={{
